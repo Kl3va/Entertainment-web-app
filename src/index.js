@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AppProvider } from "Hooks/context";
+import "../src/GlobalStyles/base.scss";
 
 //import './index.css';
 import App from "./App";
