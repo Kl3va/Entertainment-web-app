@@ -1,10 +1,19 @@
 import React from "react";
+import Form from "Pages/Login/Form";
+import logo from "StarterAssets/assets/logo.svg";
+import styles from "Pages/Login/login.module.scss";
+import { loginData } from "Pages/Login/loginData";
 
 const Login = () => {
   return (
-    <div>
-      <h1>Login Page</h1>
-    </div>
+    <>
+      <header>
+        <img src={logo} alt="logo" className={styles.logo} />
+      </header>
+      <main>
+        <Form {...loginData} />
+      </main>
+    </>
   );
 };
 

@@ -1,10 +1,19 @@
 import React from "react";
+import SignUpForm from "Pages/SignUp/SignUpForm";
+import logo from "StarterAssets/assets/logo.svg";
+import styles from "Pages/Login/login.module.scss";
+import { signupData } from "Pages/SignUp/signupData";
 
 const SignUp = () => {
   return (
-    <div>
-      <h1>SignUp Page</h1>
-    </div>
+    <>
+      <header>
+        <img src={logo} alt="logo" className={styles.logo} />
+      </header>
+      <main>
+        <SignUpForm {...signupData} />
+      </main>
+    </>
   );
 };
 
