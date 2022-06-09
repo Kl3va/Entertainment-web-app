@@ -3,7 +3,7 @@ import React from "react";
 const Tv = () => {
   return (
     <div>
-      <h2>Tv Page</h2>
+      <h1>Tv Page</h1>
     </div>
   );
 };
