@@ -1,5 +1,13 @@
-@use "GlobalStyles/variable.scss" as *;
+@use 'GlobalStyles/variable.scss' as *;
 
 .navcontainer {
   background-color: $semi-dark-blue;
+}
+
+.svg {
+  fill: $greyish-blue;
+
+  &:hover {
+    fill: $red;
+  }
 }
