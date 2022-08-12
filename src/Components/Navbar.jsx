@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import styles from 'Components/navbar.module.scss'
 import logo from 'StarterAssets/assets/logo.svg'
 //import iconHome from "StarterAssets/assets/icon-nav-home.svg";
@@ -12,14 +14,22 @@ const Navbar = () => {
   return (
     <aside className={styles.navcontainer}>
       <img src={logo} alt='logo' className={styles.logo} />
-      <nav>
+      <nav className={styles.nav}>
         {/*<img src={iconHome} alt="home" className={""} />*/}
-        <IconHome className={styles.svg} />
-        <IconTv className={styles.svg} />
-        <IconMovies className={styles.svg} />
-        <IconBookmark className={styles.svg} />
+        <Link to='/'>
+          <IconHome className={styles.svg} />
+        </Link>
+        <Link to='/tv'>
+          <IconTv className={styles.svg} />
+        </Link>
+        <Link to='/movies'>
+          <IconMovies className={styles.svg} />
+        </Link>
+        <Link to='/bookmarks'>
+          <IconBookmark className={styles.svg} />
+        </Link>
       </nav>
-      <img src={profileImg} alt='Profile' className={''} />
+      <img src={profileImg} alt='Profile' className={styles.profile} />
     </aside>
   )
 }

@@ -2,6 +2,20 @@
 
 .navcontainer {
   background-color: $semi-dark-blue;
+  padding: 1.12rem 1rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  width: min(35%, 10.8rem);
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 1.5rem;
 }
 
 .svg {
@@ -10,4 +24,10 @@
   &:hover {
     fill: $red;
   }
+}
+
+.profile {
+  width: 1.5rem;
+  border-radius: 50%;
+  border: 2px solid $white;
 }
