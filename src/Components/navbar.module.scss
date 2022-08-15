@@ -6,6 +6,7 @@
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav {
@@ -15,7 +16,8 @@
 }
 
 .logo {
-  width: 1.5rem;
+  width: min(6.67%, 2rem);
+  height: 1.56rem;
 }
 
 .svg {
@@ -26,8 +28,12 @@
   }
 }
 
+.active {
+  fill: $white;
+}
+
 .profile {
-  width: 1.5rem;
+  width: min(8%, 2.5rem);
   border-radius: 50%;
   border: 2px solid $white;
 }
