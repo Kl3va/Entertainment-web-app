@@ -24,12 +24,12 @@ const Navbar = () => {
           <IconHome className={`${path == '' ? styles.active : styles.svg}`} />
         </Link>
         <Link to='/tv'>
-          <IconTv className={`${path == 'tv' ? styles.active : styles.svg}`} />
-        </Link>
-        <Link to='/movies'>
           <IconMovies
             className={`${path == 'movies' ? styles.active : styles.svg}`}
           />
+        </Link>
+        <Link to='/movies'>
+          <IconTv className={`${path == 'tv' ? styles.active : styles.svg}`} />
         </Link>
         <Link to='/bookmarks'>
           <IconBookmark
