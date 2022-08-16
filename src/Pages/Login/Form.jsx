@@ -19,7 +19,6 @@ const Form = ({
     initialValues: {
       email: '',
       password: '',
-      confirmPassword: '',
     },
     validationSchema: Yup.object({
       email: Yup.string().email('Invalid email').required("Can't be empty"),
@@ -43,8 +42,8 @@ const Form = ({
             name='email'
             id='email'
             className={`${
-              formik.touched.fullName && formik.errors.fullName
-                ? styles.invalid
+              formik.touched.email && formik.errors.email
+                ? `${styles.field} ${styles.invalid}`
                 : styles.field
             }`}
             placeholder={emailPlaceholder}
@@ -64,8 +63,8 @@ const Form = ({
             name='password'
             id='password'
             className={`${
-              formik.touched.fullName && formik.errors.fullName
-                ? styles.invalid
+              formik.touched.password && formik.errors.password
+                ? `${styles.field} ${styles.invalid}`
                 : styles.field
             }`}
             placeholder={passwordPlaceholder}
