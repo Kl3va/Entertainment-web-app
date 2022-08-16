@@ -6,6 +6,7 @@ const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null)
 
   const searching = {
+    home: 'Search for movies or TV series',
     tv: 'TV series',
     movies: 'movies',
     bookmarks: 'bookmarked shows',

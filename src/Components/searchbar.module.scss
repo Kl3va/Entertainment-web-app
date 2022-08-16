@@ -14,9 +14,13 @@
   background-color: $color-primary;
   border: none;
   caret-color: $red;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: $white;
   width: 100%;
+
+  @media only screen and (min-width: $breakpoint-mid) {
+    font-size: 1.5rem;
+  }
 
   &:focus {
     border-bottom: 1px solid $white;
