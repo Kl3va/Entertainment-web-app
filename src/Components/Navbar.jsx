@@ -23,12 +23,12 @@ const Navbar = () => {
         <Link to='/'>
           <IconHome className={`${path === '' ? styles.active : styles.svg}`} />
         </Link>
-        <Link to='/tv'>
+        <Link to='/movies'>
           <IconMovies
             className={`${path === 'movies' ? styles.active : styles.svg}`}
           />
         </Link>
-        <Link to='/movies'>
+        <Link to='/tv'>
           <IconTv className={`${path === 'tv' ? styles.active : styles.svg}`} />
         </Link>
         <Link to='/bookmarks'>
