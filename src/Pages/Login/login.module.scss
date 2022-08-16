@@ -37,6 +37,10 @@
   }
 }
 
+.invalid {
+  border-bottom: 1px solid $red;
+}
+
 .linkto {
   display: flex;
 

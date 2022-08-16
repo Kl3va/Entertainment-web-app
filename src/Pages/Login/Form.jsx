@@ -1,7 +1,11 @@
-import React from "react";
-import styles from "Pages/Login/login.module.scss";
-import Button from "Components/Button";
-import { Link } from "react-router-dom";
+import React from 'react'
+//Form validation
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+
+import styles from 'Pages/Login/login.module.scss'
+import Button from 'Components/Button'
+import { Link } from 'react-router-dom'
 
 const Form = ({
   heading,
@@ -11,42 +15,75 @@ const Form = ({
   paragraph,
   linkText,
 }) => {
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+      confirmPassword: '',
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email('Invalid email').required("Can't be empty"),
+      password: Yup.string()
+        .min(6, 'Password must be at least 6 characters')
+        .required("Can't be empty"),
+    }),
+    onSubmit: (values, { resetForm }) => {
+      resetForm()
+    },
+  })
+
   return (
     <div className={styles.formcontainer}>
       <h1>{heading}</h1>
-      <div className={styles.wrapper}>
-        <input
-          type="email"
-          //value=""
-          name="email"
-          id="email"
-          className={styles.field}
-          placeholder={emailPlaceholder}
-          onChange={""}
-          onBlur={""}
-        />
-        <p className={styles.error}>{"error"}</p>
-      </div>
-      <div className={styles.wrapper}>
-        <input
-          type="password"
-          //value=""
-          name="password"
-          id="email"
-          className={styles.field}
-          placeholder={passwordPlaceholder}
-          onChange={""}
-          onBlur={""}
-        />
-        <p className={styles.error}>{"error"}</p>
-      </div>
-      <Button btnText={btnText} />
-      <div className={styles.linkto}>
-        <p>{paragraph}</p>
-        <Link to="/signup">{linkText}</Link>
-      </div>
-    </div>
-  );
-};
+      <form onSubmit={formik.handleSubmit}>
+        <div className={styles.wrapper}>
+          <input
+            type='email'
+            value={formik.values.email}
+            name='email'
+            id='email'
+            className={`${
+              formik.touched.fullName && formik.errors.fullName
+                ? styles.invalid
+                : styles.field
+            }`}
+            placeholder={emailPlaceholder}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {/*<p className={styles.error}>{formik.errors.email}</p>*/}
 
-export default Form;
+          {formik.touched.email && formik.errors.email ? (
+            <p className={styles.error}>{formik.errors.email}</p>
+          ) : null}
+        </div>
+        <div className={styles.wrapper}>
+          <input
+            type='password'
+            value={formik.values.password}
+            name='password'
+            id='password'
+            className={`${
+              formik.touched.fullName && formik.errors.fullName
+                ? styles.invalid
+                : styles.field
+            }`}
+            placeholder={passwordPlaceholder}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.password && formik.errors.password ? (
+            <p className={styles.error}>{formik.errors.password}</p>
+          ) : null}
+        </div>
+        <Button btnText={btnText} />
+        <div className={styles.linkto}>
+          <p>{paragraph}</p>
+          <Link to='/signup'>{linkText}</Link>
+        </div>
+      </form>
+    </div>
+  )
+}
+
+export default Form

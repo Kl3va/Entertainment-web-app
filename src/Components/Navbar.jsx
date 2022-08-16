@@ -21,19 +21,19 @@ const Navbar = () => {
       <nav className={styles.nav}>
         {/*<img src={iconHome} alt="home" className={""} />*/}
         <Link to='/'>
-          <IconHome className={`${path == '' ? styles.active : styles.svg}`} />
+          <IconHome className={`${path === '' ? styles.active : styles.svg}`} />
         </Link>
         <Link to='/tv'>
           <IconMovies
-            className={`${path == 'movies' ? styles.active : styles.svg}`}
+            className={`${path === 'movies' ? styles.active : styles.svg}`}
           />
         </Link>
         <Link to='/movies'>
-          <IconTv className={`${path == 'tv' ? styles.active : styles.svg}`} />
+          <IconTv className={`${path === 'tv' ? styles.active : styles.svg}`} />
         </Link>
         <Link to='/bookmarks'>
           <IconBookmark
-            className={`${path == 'bookmarks' ? styles.active : styles.svg}`}
+            className={`${path === 'bookmarks' ? styles.active : styles.svg}`}
           />
         </Link>
       </nav>
