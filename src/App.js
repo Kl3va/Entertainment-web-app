@@ -1,5 +1,6 @@
 //import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { app } from 'Firebase/firebaseConfig'
 
 import PrivateRoutes from 'Components/PrivateRoutes'
 import Login from 'Pages/Login/Login'
