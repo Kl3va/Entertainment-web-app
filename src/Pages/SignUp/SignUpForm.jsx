@@ -1,5 +1,8 @@
 import React from 'react'
 
+//Firebase
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+
 //Form validation
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -17,6 +20,8 @@ const SignUpForm = ({
   paragraph,
   linkText,
 }) => {
+  const auth = getAuth()
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -33,6 +38,14 @@ const SignUpForm = ({
         .required('Confirm password is required'),
     }),
     onSubmit: (values, { resetForm }) => {
+      createUserWithEmailAndPassword(
+        auth,
+        formik.values.email,
+        formik.values.password
+      )
+        .then((response) => console.log(response.user))
+        .catch((error) => console.log(error.message))
+
       resetForm()
     },
   })
