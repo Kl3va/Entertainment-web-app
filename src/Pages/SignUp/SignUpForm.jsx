@@ -9,7 +9,9 @@ import * as Yup from 'yup'
 
 import styles from 'Pages/Login/login.module.scss'
 import Button from 'Components/Button'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
+import { useGlobalContext } from 'Hooks/context'
 
 const SignUpForm = ({
   heading,
@@ -21,6 +23,7 @@ const SignUpForm = ({
   linkText,
 }) => {
   const auth = getAuth()
+  const navigate = useNavigate()
 
   const formik = useFormik({
     initialValues: {
@@ -43,10 +46,12 @@ const SignUpForm = ({
         formik.values.email,
         formik.values.password
       )
-        .then((response) => console.log(response.user))
+        .then((response) => {
+          // console.log(response.user)
+          resetForm()
+          navigate('/')
+        })
         .catch((error) => console.log(error.message))
-
-      resetForm()
     },
   })
 

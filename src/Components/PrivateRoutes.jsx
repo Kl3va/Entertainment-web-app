@@ -1,10 +1,14 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import React from 'react'
+import { useGlobalContext } from 'Hooks/context'
 
-const PrivateRoutes = () => {
-  let auth = { token: true }
+const PrivateRoutes = ({ children }) => {
+  //let auth = { token: true }
 
-  return auth.token ? <Outlet /> : <Navigate to='/login' />
+  const { user } = useGlobalContext()
+  //console.log(user)
+
+  return user ? <Outlet /> : <Navigate to='/login' />
 }
 
 export default PrivateRoutes
