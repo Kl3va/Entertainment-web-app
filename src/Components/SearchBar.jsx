@@ -6,8 +6,7 @@ import { useLocation } from 'react-router-dom'
 import styles from 'Components/searchbar.module.scss'
 
 const SearchBar = () => {
-  const { searching } = useGlobalContext()
-  console.log(searching)
+  const { searching, data } = useGlobalContext()
 
   const { pathname } = useLocation()
   const path = pathname.slice(1)
@@ -15,6 +14,7 @@ const SearchBar = () => {
   return (
     <section className={styles.section1}>
       <img src={searchIcon} alt='search' className={styles.search} />
+
       <input
         type='search'
         name='search'

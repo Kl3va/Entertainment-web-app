@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react'
+import data from 'StarterAssets/data.json'
 
 const AppContext = React.createContext()
 
@@ -13,7 +14,7 @@ const AppProvider = ({ children }) => {
   }
 
   return (
-    <AppContext.Provider value={{ user, setUser, searching }}>
+    <AppContext.Provider value={{ user, setUser, searching, data }}>
       {children}
     </AppContext.Provider>
   )
