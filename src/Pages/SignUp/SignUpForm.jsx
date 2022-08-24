@@ -3,6 +3,9 @@ import React from 'react'
 //Firebase
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 
+//Toastify package
+import { toast } from 'react-toastify'
+
 //Form validation
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -11,7 +14,7 @@ import styles from 'Pages/Login/login.module.scss'
 import Button from 'Components/Button'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { useGlobalContext } from 'Hooks/context'
+//import { useGlobalContext } from 'Hooks/context'
 
 const SignUpForm = ({
   heading,
@@ -48,10 +51,11 @@ const SignUpForm = ({
       )
         .then((response) => {
           // console.log(response.user)
+          toast.success('Signed In Successfully')
           resetForm()
           navigate('/')
         })
-        .catch((error) => console.log(error.message))
+        .catch((error) => toast.error('User Already Exists'))
     },
   })
 

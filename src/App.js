@@ -11,9 +11,13 @@ import Tv from 'Pages/Tv/Tv'
 import Bookmark from 'Pages/Bookmark/Bookmark'
 import Home from 'Pages/Home/Home'
 
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 function App() {
   return (
     <Router>
+      <ToastContainer />
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />

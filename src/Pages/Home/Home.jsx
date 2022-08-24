@@ -8,7 +8,8 @@ const Home = () => {
   console.log(user)
   return (
     <section className={styles.main}>
-      <h1>Home - Page</h1>
+      <h1>Home-Page</h1>
+      <p>Under Construction</p>
     </section>
   )
 }

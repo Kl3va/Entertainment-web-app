@@ -6,14 +6,14 @@ import data from 'StarterAssets/data.json'
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
   const auth = getAuth()
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user)
     })
-    return unSubscribe
+    return () => unSubscribe
   }, [auth])
 
   const searching = {

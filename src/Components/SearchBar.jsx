@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import styles from 'Components/searchbar.module.scss'
 
 const SearchBar = () => {
-  const { searching, data } = useGlobalContext()
+  const { searching } = useGlobalContext()
 
   const { pathname } = useLocation()
   const path = pathname.slice(1)
