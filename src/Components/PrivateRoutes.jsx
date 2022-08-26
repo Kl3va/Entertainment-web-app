@@ -7,7 +7,6 @@ const PrivateRoutes = ({ children }) => {
 
   const { user } = useGlobalContext()
   //console.log(user)
-
   return user ? <Outlet /> : <Navigate to='/login' />
 }
 

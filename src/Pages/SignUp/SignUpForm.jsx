@@ -2,6 +2,8 @@ import React from 'react'
 
 //Firebase
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { app, database } from '../../firebaseConfig'
+//import { collection, addDoc } from 'firebase/firestore'
 
 //Toastify package
 import { toast } from 'react-toastify'
@@ -14,7 +16,7 @@ import styles from 'Pages/Login/login.module.scss'
 import Button from 'Components/Button'
 import { Link, useNavigate } from 'react-router-dom'
 
-//import { useGlobalContext } from 'Hooks/context'
+import { useGlobalContext } from 'Hooks/context'
 
 const SignUpForm = ({
   heading,
@@ -27,6 +29,7 @@ const SignUpForm = ({
 }) => {
   const auth = getAuth()
   const navigate = useNavigate()
+  //const { user } = useGlobalContext()
 
   const formik = useFormik({
     initialValues: {
@@ -43,8 +46,8 @@ const SignUpForm = ({
         .oneOf([Yup.ref('password'), null], 'Password must watch')
         .required('Confirm password is required'),
     }),
-    onSubmit: (values, { resetForm }) => {
-      createUserWithEmailAndPassword(
+    onSubmit: async (values, { resetForm }) => {
+      /* createUserWithEmailAndPassword(
         auth,
         formik.values.email,
         formik.values.password
@@ -56,6 +59,23 @@ const SignUpForm = ({
           navigate('/')
         })
         .catch((error) => toast.error('User Already Exists'))
+      console.log(response.user)*/
+      let newUser
+      try {
+        newUser = await createUserWithEmailAndPassword(
+          auth,
+          formik.values.email,
+          formik.values.password
+        )
+        toast.success('Signed In Successfully')
+        resetForm()
+        navigate('/')
+        //return user.uid
+      } catch (error) {
+        toast.error('User Already Exists')
+      }
+      const { user } = newUser
+      console.log(user.uid)
     },
   })
 
