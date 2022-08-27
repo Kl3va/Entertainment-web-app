@@ -3,6 +3,7 @@ import React from 'react'
 //Firebase
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { app, database } from '../../firebaseConfig'
+import { doc, setDoc } from 'firebase/firestore'
 //import { collection, addDoc } from 'firebase/firestore'
 
 //Toastify package
@@ -11,6 +12,8 @@ import { toast } from 'react-toastify'
 //Form validation
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+
+import data from 'StarterAssets/data.json'
 
 import styles from 'Pages/Login/login.module.scss'
 import Button from 'Components/Button'
@@ -29,7 +32,6 @@ const SignUpForm = ({
 }) => {
   const auth = getAuth()
   const navigate = useNavigate()
-  //const { user } = useGlobalContext()
 
   const formik = useFormik({
     initialValues: {
@@ -75,7 +77,9 @@ const SignUpForm = ({
         toast.error('User Already Exists')
       }
       const { user } = newUser
-      console.log(user.uid)
+      // console.log(user.uid)
+
+      await setDoc(doc(database, 'users', user.uid), { ...data })
     },
   })
 
