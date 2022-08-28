@@ -1,12 +1,14 @@
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import React, { useState, useContext } from 'react'
 import { useEffect } from 'react'
-import data from 'StarterAssets/data.json'
+//import data from 'StarterAssets/data.json'
 
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null)
+  const [movieData, setMovieData] = useState([])
+
   const auth = getAuth()
 
   useEffect(() => {
@@ -24,7 +26,9 @@ const AppProvider = ({ children }) => {
   }
 
   return (
-    <AppContext.Provider value={{ user, setUser, searching, data }}>
+    <AppContext.Provider
+      value={{ user, setUser, searching, setMovieData, movieData }}
+    >
       {children}
     </AppContext.Provider>
   )

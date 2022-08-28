@@ -4,6 +4,8 @@ import React from 'react'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { app, database } from '../../firebaseConfig'
 import { doc, setDoc } from 'firebase/firestore'
+import { getDoc } from 'firebase/firestore'
+
 //import { collection, addDoc } from 'firebase/firestore'
 
 //Toastify package
@@ -32,6 +34,7 @@ const SignUpForm = ({
 }) => {
   const auth = getAuth()
   const navigate = useNavigate()
+  const { movieData, setMovieData } = useGlobalContext()
 
   const formik = useFormik({
     initialValues: {
@@ -79,7 +82,10 @@ const SignUpForm = ({
       const { user } = newUser
       // console.log(user.uid)
 
-      await setDoc(doc(database, 'users', user.uid), { ...data })
+      await setDoc(doc(database, 'users', user.uid), { data })
+      const docRef = doc(database, 'users', user.uid)
+      const docSnap = await getDoc(docRef)
+      setMovieData(docSnap.data())
     },
   })
 

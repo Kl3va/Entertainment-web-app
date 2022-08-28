@@ -3,7 +3,7 @@ import styles from 'Pages/Home/home.module.scss'
 import { useGlobalContext } from 'Hooks/context'
 
 const Home = () => {
-  const { user } = useGlobalContext()
+  const { movieData } = useGlobalContext()
 
   return (
     <section className={styles.main}>
