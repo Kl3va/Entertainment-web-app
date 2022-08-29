@@ -87,3 +87,24 @@ body {
   font-weight: $font-weight-small;
   color: $white;
 }
+
+.mainwrapper {
+  margin-top: 4.68rem;
+  @media only screen and (min-width: $breakpoint-large) {
+    //grid-row: auto;
+    //grid-columns: 2 / -1;
+    margin-top: 0;
+    //position: relative;
+    margin-left: 6rem;
+    //width: 100%;
+    //height: 100%;
+  }
+}
+
+.container {
+  @media only screen and (min-width: $breakpoint-large) {
+    //display: grid;
+    //grid-template-rows: max-content;
+    //grid-template-columns: 6rem 1fr;
+  }
+}

@@ -5,13 +5,13 @@ import { Outlet } from 'react-router-dom'
 
 const Layout = () => {
   return (
-    <>
+    <div className='container'>
       <Navbar />
-      <main>
+      <main className='mainwrapper'>
         <SearchBar />
         <Outlet />
       </main>
-    </>
+    </div>
   )
 }
 

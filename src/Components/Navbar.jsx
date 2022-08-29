@@ -17,27 +17,33 @@ const Navbar = () => {
 
   return (
     <aside className={styles.navcontainer}>
-      <img src={logo} alt='logo' className={styles.logo} />
-      <nav className={styles.nav}>
-        {/*<img src={iconHome} alt="home" className={""} />*/}
-        <Link to='/'>
-          <IconHome className={`${path === '' ? styles.active : styles.svg}`} />
-        </Link>
-        <Link to='/movies'>
-          <IconMovies
-            className={`${path === 'movies' ? styles.active : styles.svg}`}
-          />
-        </Link>
-        <Link to='/tv'>
-          <IconTv className={`${path === 'tv' ? styles.active : styles.svg}`} />
-        </Link>
-        <Link to='/bookmarks'>
-          <IconBookmark
-            className={`${path === 'bookmarks' ? styles.active : styles.svg}`}
-          />
-        </Link>
-      </nav>
-      <img src={profileImg} alt='Profile' className={styles.profile} />
+      <div className={styles.navwrapper}>
+        <img src={logo} alt='logo' className={styles.logo} />
+        <nav className={styles.nav}>
+          {/*<img src={iconHome} alt="home" className={""} />*/}
+          <Link to='/'>
+            <IconHome
+              className={`${path === '' ? styles.active : styles.svg}`}
+            />
+          </Link>
+          <Link to='/movies'>
+            <IconMovies
+              className={`${path === 'movies' ? styles.active : styles.svg}`}
+            />
+          </Link>
+          <Link to='/tv'>
+            <IconTv
+              className={`${path === 'tv' ? styles.active : styles.svg}`}
+            />
+          </Link>
+          <Link to='/bookmarks'>
+            <IconBookmark
+              className={`${path === 'bookmarks' ? styles.active : styles.svg}`}
+            />
+          </Link>
+        </nav>
+        <img src={profileImg} alt='Profile' className={styles.profile} />
+      </div>
     </aside>
   )
 }

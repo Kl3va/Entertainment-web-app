@@ -2,17 +2,82 @@
 
 .navcontainer {
   background-color: $semi-dark-blue;
+  position: fixed;
+  height: 4.5rem;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+  //display: flex;
+  //flex-direction: row;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    grid-row: auto;
+    grid-column: 1 / 2;
+    height: 100vh;
+    width: 6rem;
+  }
+
+  //padding: 1.12rem 1rem;
+
+  /*display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    grid-row: auto;
+    grid-column: 1 / 2;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 2rem;
+    //justify-content: flex-start;
+
+    & > img {
+      width: 100%;
+    }
+  } */
+}
+
+.navwrapper {
+  width: 100%;
+  height: 100%;
+
   padding: 1.12rem 1rem;
+  background-color: $semi-dark-blue;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+  //position: fixed;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    //grid-row: auto;
+    // grid-column: 1 / 2;
+    //min-height: 100vh;
+    //width: 100%;
+    flex-direction: column;
+    padding: 2rem;
+    //justify-content: flex-start;
+    //position: relative;
+
+    & > img {
+      width: 100%;
+    }
+  }
 }
 
 .nav {
   width: min(35%, 10.8rem);
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+    min-height: 12.5rem;
+    justify-self: flex-start;
+    margin-top: -14rem;
+  }
 }
 
 .logo {
@@ -36,4 +101,8 @@
   width: min(8%, 2.5rem);
   border-radius: 50%;
   border: 2px solid $white;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    justify-self: flex-end;
+  }
 }
