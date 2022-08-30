@@ -3,9 +3,18 @@ import React from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
+//Firebase
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { app, database } from '../../firebaseConfig'
+import { doc, getDoc } from 'firebase/firestore'
+
+//Toastify package
+import { toast } from 'react-toastify'
+
 import styles from 'Pages/Login/login.module.scss'
 import Button from 'Components/Button'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useGlobalContext } from 'Hooks/context'
 
 const Form = ({
   heading,
@@ -15,6 +24,11 @@ const Form = ({
   paragraph,
   linkText,
 }) => {
+  const auth = getAuth()
+  const navigate = useNavigate()
+  const { setMovieData } = useGlobalContext()
+  //console.log(user)
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -26,8 +40,28 @@ const Form = ({
         .min(6, 'Password must be at least 6 characters')
         .required("Can't be empty"),
     }),
-    onSubmit: (values, { resetForm }) => {
-      resetForm()
+    onSubmit: async (values, { resetForm }) => {
+      //Submitting user's details for verification
+      let oldUser
+      try {
+        oldUser = await signInWithEmailAndPassword(
+          auth,
+          formik.values.email,
+          formik.values.password
+        )
+        toast.success('Logged In Successfully')
+        resetForm()
+        navigate('/')
+      } catch (error) {
+        toast.error('Wrong Details')
+      }
+      const { user } = oldUser
+
+      //Getting logged in user's data from firebase
+      const docRef = doc(database, 'users', user.uid)
+      const docSnap = await getDoc(docRef)
+      //Storing said data into state via context API
+      setMovieData(docSnap.data())
     },
   })
 

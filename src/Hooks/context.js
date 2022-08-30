@@ -1,6 +1,7 @@
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import React, { useState, useContext } from 'react'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 //import data from 'StarterAssets/data.json'
 
 const AppContext = React.createContext()
@@ -14,6 +15,7 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user)
+      // setMovieData('NO DATA')
     })
     return () => unSubscribe
   }, [auth])

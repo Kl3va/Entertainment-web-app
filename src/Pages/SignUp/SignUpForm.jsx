@@ -3,8 +3,8 @@ import React from 'react'
 //Firebase
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { app, database } from '../../firebaseConfig'
-import { doc, setDoc } from 'firebase/firestore'
-import { getDoc } from 'firebase/firestore'
+import { doc, setDoc, getDoc } from 'firebase/firestore'
+//import { getDoc } from 'firebase/firestore'
 
 //import { collection, addDoc } from 'firebase/firestore'
 

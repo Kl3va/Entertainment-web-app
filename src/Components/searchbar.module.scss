@@ -3,6 +3,10 @@
 .section1 {
   display: flex;
   padding: 1.5rem 1rem;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    padding: 1.5rem 0;
+  }
 }
 
 .search {
