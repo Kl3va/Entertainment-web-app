@@ -1,1 +1,43 @@
 @use 'GlobalStyles/variable.scss' as *;
+
+//Main section
+.main {
+  padding-inline: 1rem;
+}
+
+.trend {
+  width: 15rem;
+  height: 8.75rem;
+  //border-radius: 0.5rem;
+}
+
+/*.trend__picture {
+ 
+}*/
+
+.bookmark__wrapper {
+  height: 2rem;
+  width: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  justify-self: end;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  z-index: 2;
+}
+
+.category__wrapper {
+  align-self: end;
+}
+
+.types {
+  max-width: 40%;
+
+  & > span {
+    padding: 0.2rem;
+    border-radius: 50%;
+    background-color: $white;
+  }
+}

@@ -63,6 +63,10 @@ img,
 picture {
   max-width: 100%;
   display: block;
+
+  border-radius: 0.5rem;
+  z-index: -1;
+  object-fit: cover;
 }
 
 .btn {
@@ -77,6 +81,15 @@ picture {
   &:hover {
     background-color: $white;
     color: $color-primary;
+  }
+}
+
+.packed {
+  display: grid;
+
+  & > * {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
   }
 }
 
