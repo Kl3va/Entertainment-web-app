@@ -11,9 +11,48 @@
   //border-radius: 0.5rem;
 }
 
-/*.trend__picture {
- 
-}*/
+.icon__wrapper {
+  width: min(50%, 7rem);
+  height: 3rem;
+  border-radius: 1.5rem;
+  background-color: rgba($white, 0.5);
+  align-self: center;
+  justify-self: center;
+  z-index: 6;
+
+  display: none;
+  align-items: center;
+  column-gap: 10%;
+  justify-content: center;
+  //justify-content: space-around;
+
+  p {
+    font-size: 0.72rem;
+
+    @media only screen and (min-width: $breakpoint-mid) {
+      font-size: 1.12rem;
+    }
+    //
+  }
+}
+
+.wrapper__image {
+  //z-index: 1;
+
+  & img {
+    border-radius: 0.5rem;
+    z-index: 1;
+    object-fit: cover;
+
+    &:hover {
+      filter: brightness(75%);
+    }
+  }
+
+  &:hover + .icon__wrapper {
+    display: flex;
+  }
+}
 
 .bookmark__wrapper {
   height: 2rem;
@@ -30,14 +69,32 @@
 
 .category__wrapper {
   align-self: end;
+  z-index: 7;
+
+  h2 {
+    margin-top: 3px;
+  }
 }
 
 .types {
-  max-width: 40%;
+  display: flex;
+  column-gap: 0.4rem;
 
   & > span {
-    padding: 0.2rem;
+    width: 0.2rem;
+    height: 0.2rem;
+    align-self: center;
+
+    display: block;
     border-radius: 50%;
     background-color: $white;
   }
+}
+
+//RECOMMEND
+.recommend__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 1rem 0.9rem;
 }
