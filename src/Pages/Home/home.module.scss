@@ -3,6 +3,7 @@
 //Main section
 .main {
   padding-inline: 1rem;
+  max-width: 100%;
 
   @media only screen and (min-width: $breakpoint-mid) {
     padding-inline: 1.5rem;
@@ -14,10 +15,41 @@
   }
 }
 
+/*.trending {
+  //margin-bottom: 4rem;
+}*/
+
+.trend__grid {
+  display: grid;
+  gap: min(5%, 2.5rem);
+  grid-auto-flow: column;
+  grid-auto-columns: 29.3rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.snap__inline {
+  scroll-snap-type: inline mandatory;
+
+  & > * {
+    scroll-snap-align: start;
+  }
+}
+
 .trend {
-  width: 15rem;
-  height: 8.75rem;
-  //border-radius: 0.5rem;
+  //width: 15rem;
+  //height: 8.75rem;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+}
+
+.trend__img {
+  aspect-ratio: 2 / 1;
 }
 
 .icon__wrapper {
@@ -103,6 +135,11 @@
     border-radius: 50%;
     background-color: $white;
   }
+}
+
+.category__align {
+  margin-left: min(5%, 1.5rem);
+  margin-bottom: min(5%, 1.5rem);
 }
 
 //RECOMMEND
