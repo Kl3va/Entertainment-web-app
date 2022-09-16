@@ -60,7 +60,7 @@ const Home = () => {
                     <span></span>
                     <p className={styles.rating}>{rating}</p>
                   </div>
-                  <h2>{title}</h2>
+                  <h2 className={styles.subheading}>{title}</h2>
                 </div>
               </div>
             )

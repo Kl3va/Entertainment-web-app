@@ -26,6 +26,10 @@ $breakpoint-smallest: 28.12em; //450px */
 h1 {
   font-size: 1.25rem;
   font-weight: inherit;
+
+  @media only screen and (min-width: $breakpoint-mid) {
+    font-size: 2rem;
+  }
 }
 
 h2 {

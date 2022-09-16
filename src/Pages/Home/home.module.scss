@@ -3,6 +3,15 @@
 //Main section
 .main {
   padding-inline: 1rem;
+
+  @media only screen and (min-width: $breakpoint-mid) {
+    padding-inline: 1.5rem;
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    //padding-inline: 2rem;
+    padding: 0 2rem 0 0;
+  }
 }
 
 .trend {
@@ -70,9 +79,14 @@
 .category__wrapper {
   align-self: end;
   z-index: 7;
+  margin-top: 0.5rem;
 
   h2 {
     margin-top: 3px;
+
+    @media only screen and (min-width: $breakpoint-mid) {
+      font-size: 1.12rem;
+    }
   }
 }
 
@@ -92,9 +106,28 @@
 }
 
 //RECOMMEND
+
+.recommended {
+  margin-top: 1.5rem;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    margin-top: 2rem;
+  }
+}
+
 .recommend__grid {
+  margin-top: 1.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-gap: 1rem 0.9rem;
+
+  @media only screen and (min-width: $breakpoint-mid) {
+    grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  }
 }
