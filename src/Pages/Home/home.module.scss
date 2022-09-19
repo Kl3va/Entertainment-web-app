@@ -23,13 +23,17 @@
   display: grid;
   gap: min(5%, 2.5rem);
   grid-auto-flow: column;
-  grid-auto-columns: 29.3rem;
+  grid-auto-columns: 71%;
   overflow-x: auto;
   scrollbar-width: none;
   overscroll-behavior-inline: contain;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media only screen and (min-width: $breakpoint-mid) {
+    grid-auto-columns: 29.3rem;
   }
 }
 
