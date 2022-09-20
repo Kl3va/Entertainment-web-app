@@ -8,7 +8,7 @@ import iconBookmarkEmpty from 'StarterAssets/assets/icon-bookmark-empty.svg'
 import iconBookmarkFull from 'StarterAssets/assets/icon-bookmark-full.svg'
 
 const Home = () => {
-  const { movieData } = useGlobalContext()
+  const { movieData, bookmarkMovie } = useGlobalContext()
 
   //Data for trending movies section
   const trendingMovies = movieData.filter((movie) => {
@@ -53,7 +53,10 @@ const Home = () => {
                     <p>Play</p>
                   </div>
 
-                  <div className={styles.bookmark__wrapper}>
+                  <div
+                    className={styles.bookmark__wrapper}
+                    onClick={() => bookmarkMovie(id)}
+                  >
                     <img
                       src={isBookmarked ? iconBookmarkFull : iconBookmarkEmpty}
                       alt='click to bookmark'
