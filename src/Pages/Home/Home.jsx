@@ -17,7 +17,7 @@ const Home = () => {
 
   //Data for recommended movie section
   const recommendedMovies = movieData.filter((movie) => {
-    return movie.thumbnail?.regular
+    return movie.thumbnail?.regular && !movie.isTrending
   })
 
   return (
