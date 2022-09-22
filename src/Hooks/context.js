@@ -18,6 +18,7 @@ const AppContext = React.createContext()
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [movieData, setMovieData] = useState(getLocalStorage())
+  const [searchValue, setSearchValue] = useState('')
 
   //loops over an array, compares the ids of passed and contained and changes the value of bookmarked prop
 
@@ -50,7 +51,7 @@ const AppProvider = ({ children }) => {
         return movie
       })
     )*/
-    console.log(id)
+    //console.log(id)
     const newState = movieData.map((obj) => {
       // 👇️ if id equals obj[id], update bookmarked property
 
@@ -59,14 +60,13 @@ const AppProvider = ({ children }) => {
         return { ...obj, isBookmarked: !isBookmarked }
       }
 
-      // 👇️ otherwise return object as is
+      // 👇️ otherwise return the object as is
       return obj
     })
 
     setMovieData(newState)
-    console.log(movieData)
   }
-  console.log(movieData)
+
   //Previous code
   /* const auth = getAuth()
   //const navigate = useNavigate()
@@ -97,6 +97,8 @@ const AppProvider = ({ children }) => {
         setMovieData,
         movieData,
         bookmarkMovie,
+        searchValue,
+        setSearchValue,
       }}
     >
       {children}

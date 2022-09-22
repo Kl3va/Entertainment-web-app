@@ -13,7 +13,7 @@ const Bookmark = () => {
   })
 
   useEffect(() => {
-    //This can be refactored using an array. This has been a huge experimental project. wow!!
+    //Will return to this cause it can be refactored using an array. This has been a huge experimental project. wow!!
     if (bookmarkCategory.length === 1) {
       setAlign(styles.recommend__column1)
     } else if (bookmarkCategory.length === 2) {

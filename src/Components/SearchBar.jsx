@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import styles from 'Components/searchbar.module.scss'
 
 const SearchBar = () => {
-  const { searching } = useGlobalContext()
+  const { searching, searchValue, setSearchValue } = useGlobalContext()
 
   const { pathname } = useLocation()
   const path = pathname.slice(1)
@@ -21,6 +21,7 @@ const SearchBar = () => {
         placeholder={
           path === '' ? searching.home : `Search for ${searching[path]}`
         }
+        onChange={(e) => setSearchValue(e.target.value)}
         className={styles.filter}
       />
     </section>
