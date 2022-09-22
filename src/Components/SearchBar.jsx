@@ -18,7 +18,9 @@ const SearchBar = () => {
       <input
         type='search'
         name='search'
-        placeholder={path === '' ? searching.home : searching[path]}
+        placeholder={
+          path === '' ? searching.home : `Search for ${searching[path]}`
+        }
         className={styles.filter}
       />
     </section>

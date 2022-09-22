@@ -1,11 +1,27 @@
-import React from "react";
+import React from 'react'
+import { useGlobalContext } from 'Hooks/context'
+import Show from 'Components/Show'
+import styles from 'Pages/Home/home.module.scss'
 
 const Tv = () => {
-  return (
-    <div>
-      <h1>Tv Page</h1>
-    </div>
-  );
-};
+  const { movieData, bookmarkMovie } = useGlobalContext()
+  //Array of TV Series section
+  const tvSeriesCategory = movieData.filter((movie) => {
+    return movie.category === 'TV Series'
+  })
 
-export default Tv;
+  return (
+    <section className={styles.main}>
+      <h1>TV Series</h1>
+      <div className={styles.recommend__grid}>
+        {tvSeriesCategory.map((movie) => {
+          return (
+            <Show key={movie.id} {...movie} bookmarkMovie={bookmarkMovie} />
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+
+export default Tv

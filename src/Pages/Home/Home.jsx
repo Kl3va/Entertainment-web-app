@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from 'Pages/Home/home.module.scss'
 import { useGlobalContext } from 'Hooks/context'
+import Show from 'Components/Show'
 
 //Abstract Data // Icons
 import IconPlay from 'StarterAssets/assets/icon-play.svg'
@@ -10,12 +11,12 @@ import iconBookmarkFull from 'StarterAssets/assets/icon-bookmark-full.svg'
 const Home = () => {
   const { movieData, bookmarkMovie } = useGlobalContext()
 
-  //Data for trending movies section
+  //Array of trending movies section
   const trendingMovies = movieData.filter((movie) => {
     return movie.thumbnail?.trending
   })
 
-  //Data for recommended movie section
+  //Array of recommended movie section
   const recommendedMovies = movieData.filter((movie) => {
     return movie.thumbnail?.regular && !movie.isTrending
   })
@@ -84,7 +85,8 @@ const Home = () => {
         <h1 className='heading-large'>Recommended For You</h1>
         <div className={styles.recommend__grid}>
           {recommendedMovies.map(
-            ({
+            (
+              /*{
               title,
               id,
               thumbnail: { regular },
@@ -92,9 +94,11 @@ const Home = () => {
               category,
               rating,
               isBookmarked,
-            }) => {
+            }*/ movie
+            ) => {
               return (
-                <div key={id} className={`${styles.recommend}`}>
+                <Show key={movie.id} {...movie} bookmarkMovie={bookmarkMovie} />
+                /*<div key={id} className={`${styles.recommend}`}>
                   <div className={`${styles.picture} packed`}>
                     <picture className={styles.wrapper__image}>
                       <source
@@ -131,7 +135,7 @@ const Home = () => {
                     </div>
                     <h2>{title}</h2>
                   </div>
-                </div>
+                </div>*/
               )
             }
           )}
