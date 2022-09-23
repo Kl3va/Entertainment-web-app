@@ -13,15 +13,12 @@ const Home = () => {
   const { movieData, bookmarkMovie, searchValue } = useGlobalContext()
 
   //Array of recommended movie section
-  const recommendedMovies = movieData.filter((movie) => {
+  const recommendedMovies = (movieData || []).filter((movie) => {
     return movie.thumbnail?.regular && !movie.isTrending
   })
 
   //Display search results
-  if (searchValue)
-    return (
-      <SearchResults movieArray={movieData} />
-    )
+  if (searchValue) return <SearchResults movieArray={movieData} />
   //Return the entire array if the search value is empty... More like the default component
   return (
     <section className={styles.main}>
