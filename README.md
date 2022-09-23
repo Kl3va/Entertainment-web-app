@@ -29,8 +29,8 @@ This is a solution to the [Entertainment web app challenge on Frontend Mentor](h
 
 ### Links
 
-- Solution URL: [](https://github.com/Kl3va/Entertainment-web-app)
-- Live Site URL: [](https://entertainment-mini-app.netlify.app/)
+- Solution URL: [github](https://github.com/Kl3va/Entertainment-web-app)
+- Live Site URL: [netlify](https://entertainment-mini-app.netlify.app/)
 
 ## My process
 
