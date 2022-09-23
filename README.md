@@ -16,8 +16,6 @@ This is a solution to the [Entertainment web app challenge on Frontend Mentor](h
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -31,8 +29,8 @@ This is a solution to the [Entertainment web app challenge on Frontend Mentor](h
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/Kl3va/Entertainment-web-app)
-- Live Site URL: [Add live site URL here](https://entertainment-mini-app.netlify.app/)
+- Solution URL: [](https://github.com/Kl3va/Entertainment-web-app)
+- Live Site URL: [](https://entertainment-mini-app.netlify.app/)
 
 ## My process
 
@@ -103,7 +101,7 @@ const bookmarkMovie = (id) => {
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/Kl3va)
+- Frontend Mentor - [@Kl3va](https://www.frontendmentor.io/profile/Kl3va)
 
 ## Acknowledgments
 
