@@ -10,14 +10,9 @@
   }
 
   @media only screen and (min-width: $breakpoint-large) {
-    //padding-inline: 2rem;
     padding: 0 2rem 0 0;
   }
 }
-
-/*.trending {
-  //margin-bottom: 4rem;
-}*/
 
 .trend__grid {
   display: grid;
@@ -173,40 +168,43 @@
   }
 }
 
+//////STYLING FOR BOOKMARK SECTION ACCORDING NUMBER OF BOOKMARKS
+/// If bookmarkLength is 1
 .recommend__column1 {
-   @media only screen and (min-width: $breakpoint-mid) {
-    //grid-template-columns: repeat(2, 13.75fr);
+  @media only screen and (min-width: $breakpoint-mid) {
     grid-template-columns: 25%;
   }
-
- /* @media only screen and (min-width: $breakpoint-large) {
-    //margin-top: 2rem;
-    // grid-template-columns: repeat(3, 17.5rem);
-    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 18rem));
-  }*/
 }
 
+/// If bookmarkLength is 2
 .recommend__column2 {
   @media only screen and (min-width: $breakpoint-mid) {
-    //grid-template-columns: repeat(2, 13.75fr);
     grid-template-columns: repeat(auto-fit, min(13.75rem, 1fr));
   }
 
   @media only screen and (min-width: $breakpoint-large) {
-    //margin-top: 2rem;
-    // grid-template-columns: repeat(3, 17.5rem);
     grid-template-columns: repeat(auto-fit, minmax(17.5rem, 18rem));
   }
 }
 
+/// If bookmarkLength is 3
 .recommend__column3 {
   @media only screen and (min-width: $breakpoint-mid) {
-    //grid-template-columns: repeat(2, 13.75fr);
     grid-template-columns: repeat(auto-fit, min(13.75rem, 1fr));
   }
 
   @media only screen and (min-width: $breakpoint-large) {
-    //margin-top: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(17.5rem, 17.6rem));
+  }
+}
+
+//Flex Container
+.gridTest {
+  @media only screen and (min-width: $breakpoint-mid) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
