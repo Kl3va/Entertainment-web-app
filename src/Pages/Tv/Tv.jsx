@@ -1,14 +1,17 @@
 import React from 'react'
 import { useGlobalContext } from 'Hooks/context'
 import Show from 'Components/Show'
+import SearchResults from 'Components/SearchResults'
 import styles from 'Pages/Home/home.module.scss'
 
 const Tv = () => {
-  const { movieData, bookmarkMovie } = useGlobalContext()
+  const { movieData, bookmarkMovie, searchValue } = useGlobalContext()
   //Array of TV Series section
   const tvSeriesCategory = movieData.filter((movie) => {
     return movie.category === 'TV Series'
   })
+
+  if (searchValue) return <SearchResults movieArray={tvSeriesCategory} />
 
   return (
     <section className={styles.main}>

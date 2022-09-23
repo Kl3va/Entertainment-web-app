@@ -4,6 +4,7 @@ import IconPlay from 'StarterAssets/assets/icon-play.svg'
 import iconBookmarkEmpty from 'StarterAssets/assets/icon-bookmark-empty.svg'
 import iconBookmarkFull from 'StarterAssets/assets/icon-bookmark-full.svg'
 
+//Styling using scss modules
 import styles from 'Pages/Home/home.module.scss'
 
 const Show = ({

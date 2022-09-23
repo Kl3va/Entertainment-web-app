@@ -2,6 +2,7 @@ import React from 'react'
 import styles from 'Pages/Home/home.module.scss'
 import { useGlobalContext } from 'Hooks/context'
 import Show from 'Components/Show'
+import SearchResults from 'Components/SearchResults'
 
 //Abstract Data // Icons
 import IconPlay from 'StarterAssets/assets/icon-play.svg'
@@ -11,19 +12,15 @@ import iconBookmarkFull from 'StarterAssets/assets/icon-bookmark-full.svg'
 const Home = () => {
   const { movieData, bookmarkMovie, searchValue } = useGlobalContext()
 
-  //Array of trending movies section
-  /* const trendingMovies = movieData.filter((movie) => {
-    return movie.thumbnail?.trending
-  })*/
-
   //Array of recommended movie section
   const recommendedMovies = movieData.filter((movie) => {
     return movie.thumbnail?.regular && !movie.isTrending
   })
 
+  //Display search results
   if (searchValue)
     return (
-      <section className={styles.main}>
+      /* <section className={styles.main}>
         <h1 className='heading-large'>
           {`Found ${
             movieData.filter((mov) =>
@@ -42,9 +39,10 @@ const Home = () => {
               )
             })}
         </div>
-      </section>
+      </section>*/
+      <SearchResults movieArray={movieData} />
     )
-
+  //Return the entire array if the search value is empty... More like the default component
   return (
     <section className={styles.main}>
       <div className={styles.trending}>
@@ -114,61 +112,11 @@ const Home = () => {
       <div className={styles.recommended}>
         <h1 className='heading-large'>Recommended For You</h1>
         <div className={styles.recommend__grid}>
-          {recommendedMovies.map(
-            (
-              /*{
-              title,
-              id,
-              thumbnail: { regular },
-              year,
-              category,
-              rating,
-              isBookmarked,
-            }*/ movie
-            ) => {
-              return (
-                <Show key={movie.id} {...movie} bookmarkMovie={bookmarkMovie} />
-                /*<div key={id} className={`${styles.recommend}`}>
-                  <div className={`${styles.picture} packed`}>
-                    <picture className={styles.wrapper__image}>
-                      <source
-                        media='(min-width: 801px)'
-                        srcSet={regular.large}
-                      />
-                      <source
-                        media='(min-width: 400px)'
-                        srcSet={regular.medium}
-                      />
-                      <img src={regular.small} alt='Top movie' />
-                    </picture>
-                    <div className={styles.icon__wrapper}>
-                      <img src={IconPlay} alt='click to play movie' />
-                      <p>Play</p>
-                    </div>
-
-                    <div className={styles.bookmark__wrapper}>
-                      <img
-                        src={
-                          isBookmarked ? iconBookmarkFull : iconBookmarkEmpty
-                        }
-                        alt='click to bookmark'
-                      />
-                    </div>
-                  </div>
-                  <div className={styles.category__wrapper}>
-                    <div className={styles.types}>
-                      <p className={styles.year}>{year}</p>
-                      <span></span>
-                      <p className={styles.type}>{category}</p>
-                      <span></span>
-                      <p className={styles.rating}>{rating}</p>
-                    </div>
-                    <h2>{title}</h2>
-                  </div>
-                </div>*/
-              )
-            }
-          )}
+          {recommendedMovies.map((movie) => {
+            return (
+              <Show key={movie.id} {...movie} bookmarkMovie={bookmarkMovie} />
+            )
+          })}
         </div>
       </div>
     </section>

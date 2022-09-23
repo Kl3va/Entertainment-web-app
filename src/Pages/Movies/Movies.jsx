@@ -2,13 +2,16 @@ import React from 'react'
 import { useGlobalContext } from 'Hooks/context'
 import Show from 'Components/Show'
 import styles from 'Pages/Home/home.module.scss'
+import SearchResults from 'Components/SearchResults'
 
 const Movies = () => {
-  const { movieData, bookmarkMovie } = useGlobalContext()
+  const { movieData, bookmarkMovie, searchValue } = useGlobalContext()
   //Array of movies section
   const moviesCategory = movieData.filter((movie) => {
     return movie.category === 'Movie'
   })
+
+  if (searchValue) return <SearchResults movieArray={moviesCategory} />
 
   return (
     <section className={styles.main}>

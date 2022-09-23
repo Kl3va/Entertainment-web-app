@@ -3,10 +3,11 @@ import { useGlobalContext } from 'Hooks/context'
 import Show from 'Components/Show'
 import styles from 'Pages/Home/home.module.scss'
 import { useState } from 'react'
+import SearchResults from 'Components/SearchResults'
 
 const Bookmark = () => {
   const [align, setAlign] = useState(null)
-  const { movieData, bookmarkMovie } = useGlobalContext()
+  const { movieData, bookmarkMovie, searchValue } = useGlobalContext()
   //Array of Bookmarked Movies section
   const bookmarkCategory = movieData.filter((movie) => {
     return movie.isBookmarked
@@ -24,6 +25,8 @@ const Bookmark = () => {
       setAlign(null)
     }
   }, [bookmarkCategory])
+
+  if (searchValue) return <SearchResults movieArray={bookmarkCategory} />
 
   return (
     <section className={styles.main}>
