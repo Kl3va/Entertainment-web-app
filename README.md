@@ -1,6 +1,6 @@
-# Frontend Mentor - Entertainment web app solution
+# Entertainment web app solution
 
-This is a solution to the [Entertainment web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X). Frontend Mentor challenges help you improve your coding skills by building realistic project.
+This is a solution to the [Entertainment web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X).
 
 ## Table of contents
 
@@ -22,97 +22,89 @@ This is a solution to the [Entertainment web app challenge on Frontend Mentor](h
 
 ### The challenge
 
-Users should be able to:
-
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Navigate between Home, Movies, TV Series, and Bookmarked Shows pages
+- My users are able to view the optimal layout for the app depending on their device's screen size...
+- They can all see hover states for all interactive elements on the page
+- They can navigate between Home, Movies, TV Series, and Bookmarked Shows pages
 - Add/Remove bookmarks from all movies and TV series
 - Search for relevant shows on all pages
-- **Bonus**: Build this project as a full-stack application
-- **Bonus**: If you're building a full-stack app, we provide authentication screen (sign-up/login) designs if you'd like to create an auth flow
-
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+- This waas built as a full-stack application with login and signup screens
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/Kl3va/Entertainment-web-app)
+- Live Site URL: [Add live site URL here](https://entertainment-mini-app.netlify.app/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
+- JSX
+- SCSS module system
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Firebase](https://firebase.google.com/) - Database Framework for storing data
+- [Scss Module](https://sass-lang.com) - For styling
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+- My key takeaway was learning how to use firebase to authenticate users, store data on firestore cloudstorage, persist auth state as well as update the storage. Using the functions provided by firebase to implement these was a joy to behold.
+- Learning how to use scss modules to style for such a large project was cool. It has a little similarity with styled components.
+- I was also able to get acquainted with implementing private routes/protected routes for displaying certain components according to a user's authorization.
+- I equally learnt how to structure my project folders according to the size of the project. Here's a link; [pedro Tech](https://www.youtube.com/watch?v=XEO3mFvrDx0&t=702s).
+- Getting better as styling using the mobile first approach workflow.
+- I'm glad I read the reactrouter docs for implementing this type of user interface. It was challenging at first sight, but the way i structured it, aided me in implementing the search functionality with ease without having to render a search component for every page... All i needed to do was make it a persistent component with the pages serving as outlets.
+- Also comfortable with creating reusuable components as seen with the search results.
+- For the first time I was able to use custom hook to fetch authentication. I was overly impressed with this.
+- I moved away from using relative paths to absolute paths for importing my files. All thanks to [Fola Folarin](https://github.com/folathecoder)... An amazing person to my progress so far.
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+I'm so impressed about these codes:
 
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.snap__inline {
+  scroll-snap-type: inline mandatory;
+
+  & > * {
+    scroll-snap-align: start;
+  }
 }
 ```
 
 ```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
+//loops over an array, compares the ids of passed and contained and changes the value of bookmarked prop
+const bookmarkMovie = (id) => {
+  const newState = movieData.map((obj) => {
+    // if id equals obj[id], update bookmarked property
+
+    if (obj.id === id) {
+      const { isBookmarked } = obj
+      return { ...obj, isBookmarked: !isBookmarked }
+    }
+
+    // else return the object as it is
+    return obj
+  })
+  //Store newstate into the movieData array.
+  setMovieData(newState)
+}
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- I'm looking at learning reduxToolKit very well... Also, NextJs to be applied in my next project which is an e-commerce application. Might as well pick up TypeScript cause there's a high demeand for it lately.
+- Getting better at writing reusuable code is my next line of improvement, because after building, I was able to spot out things I could ve done differently.
+- Also,Late into the project I read someone's(Kadet') code implementation of a certain spiral animation that trended a certain time on twitter and I was so impressed with how he commented his codes... Very descriptive. I'm looking to build on that moving forward. I really loved what I saw.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Layouts](https://reactrouter.com/en/v6.3.0/getting-started/concepts#layout-routes), [Outlets](https://reactrouter.com/en/v6.3.0/getting-started/concepts#outlets) - This was effective in my implementation of the user interface structure.
+- [Creating database for each user](https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document) - This part of the docs was helpful, cause i didnt need firebase to autogenrate an id for me... I simply created a specific user database using the id generated when a user was created during the signup functionality. This was helpful in manipulating the data contained in the database according to the specific user.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/Kl3va)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+A huge shout out to Fola, Derek, Victor, Nkpozi, Olusegun, Zimway, Francis, Kristi... They were always available to answer my every question. Also, a huge thanks to the entire frontendmentor team for providing such a platform to aid developers out there.
