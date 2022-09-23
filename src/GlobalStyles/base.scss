@@ -1,26 +1,5 @@
 @use 'GlobalStyles/variable.scss' as *;
 
-/*
-
-
-//Breakpoints
-$breakpoint-largest: 78.5em; //1256px
-$breakpoint-larger: 62.5em; //1000px
-$breakpoint-large: 50em; //800px
-$breakpoint-medium: 46.8em; //750px
-$breakpoint-mid: 43.75em; //700px
-$breakpoint-small: 37.5em; //600px
-$breakpoint-smaller: 31.25em; //500px
-$breakpoint-smallest: 28.12em; //450px */
-
-//MIXINS
-/*@mixin imagestyle {
-  width: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-*/
-
 //Typography
 
 h1 {
@@ -104,20 +83,17 @@ body {
 .mainwrapper {
   margin-top: 4.68rem;
   @media only screen and (min-width: $breakpoint-large) {
-    //grid-row: auto;
-    //grid-columns: 2 / -1;
+    
     margin-top: 4.5rem;
-    //position: relative;
+    
     margin-left: 10rem;
-    //width: 100%;
-    //height: 100%;
+    
   }
 }
 
-.container {
+//Quick Fix
+/*.container {
   @media only screen and (min-width: $breakpoint-large) {
-    //display: grid;
-    //grid-template-rows: max-content;
-    //grid-template-columns: 6rem 1fr;
+    
   }
-}
+}*/

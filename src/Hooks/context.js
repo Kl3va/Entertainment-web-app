@@ -1,7 +1,10 @@
-import { onAuthStateChanged, getAuth } from 'firebase/auth'
-import React, { useState, useContext } from 'react'
-import { useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import { app, database } from '../firebaseConfig'
+import { doc, setDoc } from 'firebase/firestore'
 import data from 'StarterAssets/data.json'
+
+//Toastify package
+import { toast } from 'react-toastify'
 
 //Get Data stored in local storage
 const getLocalStorage = () => {
@@ -16,70 +19,30 @@ const getLocalStorage = () => {
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  const [user, setUser] = useState(null)
+  const [userID, setUserID] = useState('')
   const [movieData, setMovieData] = useState(getLocalStorage())
   const [searchValue, setSearchValue] = useState('')
-
-  //loops over an array, compares the ids of passed and contained and changes the value of bookmarked prop
-
-  //Previous code
-  /* const auth = getAuth()
-  //const navigate = useNavigate()
-  
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user)
-
-      console.log(user)
-    })
-
-    return () => unSubscribe
-  }, [])*/
 
   useEffect(() => {
     localStorage.setItem('movieData', JSON.stringify(movieData))
   }, [movieData])
 
+  //loops over an array, compares the ids of passed and contained and changes the value of bookmarked prop
   const bookmarkMovie = (id) => {
-    /* setMovieData(
-      movieData.map((movie) => {
-        const { isBookmarked } = movie
-        if (movie.id === id) {
-          return { ...movie, isBookmarked: !isBookmarked }
-        }
-        //console.log(movie)
-        return movie
-      })
-    )*/
-    //console.log(id)
     const newState = movieData.map((obj) => {
-      // 👇️ if id equals obj[id], update bookmarked property
+      // if id equals obj[id], update bookmarked property
 
       if (obj.id === id) {
         const { isBookmarked } = obj
         return { ...obj, isBookmarked: !isBookmarked }
       }
 
-      // 👇️ otherwise return the object as is
+      // else return the object as it is
       return obj
     })
 
     setMovieData(newState)
   }
-
-  //Previous code
-  /* const auth = getAuth()
-  //const navigate = useNavigate()
-  
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user)
-
-      console.log(user)
-    })
-
-    return () => unSubscribe
-  }, [])*/
 
   const searching = {
     home: 'Search for movies or TV series',
@@ -88,11 +51,19 @@ const AppProvider = ({ children }) => {
     bookmarks: 'bookmarked shows',
   }
 
+  useEffect(() => {
+    const sendData = async () => {
+      await setDoc(doc(database, 'users', userID), { movieData })
+    }
+
+    sendData().catch((error) => toast.error(error))
+  }, [movieData])
+
   return (
     <AppContext.Provider
       value={{
-        user,
-        setUser,
+        userID,
+        setUserID,
         searching,
         setMovieData,
         movieData,

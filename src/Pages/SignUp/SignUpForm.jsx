@@ -4,9 +4,6 @@ import React from 'react'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 import { app, database } from '../../firebaseConfig'
 import { doc, setDoc, getDoc } from 'firebase/firestore'
-//import { getDoc } from 'firebase/firestore'
-
-//import { collection, addDoc } from 'firebase/firestore'
 
 //Toastify package
 import { toast } from 'react-toastify'
@@ -34,7 +31,7 @@ const SignUpForm = ({
 }) => {
   const auth = getAuth()
   const navigate = useNavigate()
-  const { movieData, setMovieData } = useGlobalContext()
+  const { setUserID, setMovieData } = useGlobalContext()
 
   const formik = useFormik({
     initialValues: {
@@ -52,19 +49,6 @@ const SignUpForm = ({
         .required('Confirm password is required'),
     }),
     onSubmit: async (values, { resetForm }) => {
-      /* createUserWithEmailAndPassword(
-        auth,
-        formik.values.email,
-        formik.values.password
-      )
-        .then((response) => {
-          // console.log(response.user)
-          toast.success('Signed In Successfully')
-          resetForm()
-          navigate('/')
-        })
-        .catch((error) => toast.error('User Already Exists'))
-      console.log(response.user)*/
       let newUser
       try {
         newUser = await createUserWithEmailAndPassword(
@@ -75,12 +59,11 @@ const SignUpForm = ({
         toast.success('Signed In Successfully')
         resetForm()
         navigate('/')
-        //return user.uid
       } catch (error) {
         toast.error('User Already Exists')
       }
       const { user } = newUser
-      // console.log(user.uid)
+      setUserID(user.uid)
 
       await setDoc(doc(database, 'users', user.uid), { data })
       const docRef = doc(database, 'users', user.uid)

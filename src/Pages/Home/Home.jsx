@@ -20,26 +20,6 @@ const Home = () => {
   //Display search results
   if (searchValue)
     return (
-      /* <section className={styles.main}>
-        <h1 className='heading-large'>
-          {`Found ${
-            movieData.filter((mov) =>
-              mov.title.toLowerCase().includes(searchValue.toLowerCase())
-            ).length
-          } results for '${searchValue}'`}
-        </h1>
-        <div className={`${styles.recommend__grid} ${styles.gridTest}`}>
-          {movieData
-            .filter((mov) =>
-              mov.title.toLowerCase().includes(searchValue.toLowerCase())
-            )
-            .map((movie) => {
-              return (
-                <Show key={movie.id} {...movie} bookmarkMovie={bookmarkMovie} />
-              )
-            })}
-        </div>
-      </section>*/
       <SearchResults movieArray={movieData} />
     )
   //Return the entire array if the search value is empty... More like the default component

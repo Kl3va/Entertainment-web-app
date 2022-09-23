@@ -26,8 +26,7 @@ const Form = ({
 }) => {
   const auth = getAuth()
   const navigate = useNavigate()
-  const { setMovieData } = useGlobalContext()
-  //console.log(user)
+  const { setMovieData, setUserID } = useGlobalContext()
 
   const formik = useFormik({
     initialValues: {
@@ -53,9 +52,10 @@ const Form = ({
         resetForm()
         navigate('/')
       } catch (error) {
-        toast.error('Wrong Details')
+        toast.error('Wrong Details / check your network')
       }
       const { user } = oldUser
+      setUserID(user.uid)
 
       //Getting logged in user's data from firebase
       const docRef = doc(database, 'users', user.uid)
