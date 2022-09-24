@@ -13,7 +13,7 @@ const Home = () => {
   const { movieData, bookmarkMovie, searchValue } = useGlobalContext()
 
   //Array of recommended movie section
-  const recommendedMovies = (movieData || []).filter((movie) => {
+  const recommendedMovies = movieData.filter((movie) => {
     return movie.thumbnail?.regular && !movie.isTrending
   })
 
