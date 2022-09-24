@@ -20,13 +20,13 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [userID, setUserID] = useState('')
-  //const [movieData, setMovieData] = useState(getLocalStorage())
-  const [movieData, setMovieData] = useState(data)
+  const [movieData, setMovieData] = useState(getLocalStorage())
+  //const [movieData, setMovieData] = useState(data)
   const [searchValue, setSearchValue] = useState('')
 
-  /*useEffect(() => {
+  useEffect(() => {
     localStorage.setItem('movieData', JSON.stringify(movieData))
-  }, [movieData])*/
+  }, [movieData])
 
   //loops over an array, compares the ids of passed and contained and changes the value of bookmarked prop
   const bookmarkMovie = (id) => {
@@ -44,7 +44,7 @@ const AppProvider = ({ children }) => {
 
     setMovieData(newState)
   }
-
+  console.log(movieData)
   const searching = {
     home: 'Search for movies or TV series',
     tv: 'TV series',
