@@ -63,7 +63,7 @@ const SignUpForm = ({
         toast.error('User Already Exists')
       }
       const { user } = newUser
-      //setUserID(user.uid)
+      setUserID(user.uid)
 
       await setDoc(doc(database, 'users', user.uid), { data })
       const docRef = doc(database, 'users', user.uid)

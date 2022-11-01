@@ -55,7 +55,7 @@ const Form = ({
         toast.error(error.message)
       }
       const { user } = oldUser
-      //setUserID(user.uid)
+      setUserID(user.uid)
 
       //Getting logged in user's data from firebase
       const docRef = doc(database, 'users', user.uid)
