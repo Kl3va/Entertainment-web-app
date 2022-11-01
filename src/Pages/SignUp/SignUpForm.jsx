@@ -63,12 +63,13 @@ const SignUpForm = ({
         toast.error('User Already Exists')
       }
       const { user } = newUser
-      setUserID(user.uid)
+      //setUserID(user.uid)
 
       await setDoc(doc(database, 'users', user.uid), { data })
       const docRef = doc(database, 'users', user.uid)
       const docSnap = await getDoc(docRef)
-      setMovieData(docSnap.data())
+      const { data:{ data } } = docSnap.data()
+      setMovieData(data)
     },
   })
 

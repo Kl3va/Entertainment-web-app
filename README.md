@@ -88,9 +88,12 @@ const bookmarkMovie = (id) => {
 
 ### Continued development
 
-- I'm looking at learning reduxToolKit very well... Also, NextJs to be applied in my next project which is an e-commerce application. Might as well pick up TypeScript cause there's a high demeand for it lately.
+- I'm looking at learning reduxToolKit very well... Also, NextJs to be applied in my next project which is an e-commerce application. Might as well pick up TypeScript cause there's a high demand for it lately.
 - Getting better at writing reusuable code is my next line of improvement, because after building, I was able to spot out things I could ve done differently.
-- Also,Late into the project I read someone's(Kadet') code implementation of a certain spiral animation that trended a certain time on twitter and I was so impressed with how he commented his codes... Very descriptive. I'm looking to build on that moving forward. I really loved what I saw.
+- Also,Late into the project I read someone's(Kadet') code implementation of a certain spiral animation that made top trends a certain time on twitter and I was so impressed with how he commented his codes... Very descriptive. I'm looking to build on that moving forward. I really loved what I saw.
+- I will be exploring firebase more, cause my solution can be improved upon by:
+  - fetching user's data directly from firebase using the snapshot event listener as against my current approach of updating the docs using the sendDocs function when a change occurs in the state... Cause this pattern will enable me ignore a situation where a user refreshes the page. My current set up, utilizes sessions, which isn't optimal.
+  - setting up a better storage structure cause the current one makes a lot of reads and writes. I've an idea of the approach(making a call to only a unique collection with default properties n values as a reference n only changing a user's specified doc properties(bookmarks). This should be achieved using the 'where' statement provided by firebase. More to read up on.)
 
 ### Useful resources
 

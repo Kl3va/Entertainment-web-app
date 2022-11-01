@@ -52,18 +52,21 @@ const Form = ({
         resetForm()
         navigate('/')
       } catch (error) {
-        toast.error('Wrong Details / check your network')
+        toast.error(error.message)
       }
       const { user } = oldUser
-      setUserID(user.uid)
+      //setUserID(user.uid)
 
       //Getting logged in user's data from firebase
       const docRef = doc(database, 'users', user.uid)
       const docSnap = await getDoc(docRef)
       //Storing said data into state via context API
-      const { data } = docSnap.data()
+      const {
+        data: { movieData },
+      } = docSnap.data()
       //setMovieData(docSnap.data())
-      setMovieData(data)
+      //setMovieData(['Welcome', 'Hey'])
+      setMovieData(movieData)
     },
   })
 
