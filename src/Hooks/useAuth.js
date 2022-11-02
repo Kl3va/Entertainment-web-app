@@ -33,9 +33,10 @@ export const useAuth = () => {
       .catch((error) => {
         // Handle the Errors here. Not necessarily using this.
         //const errorCode = error.code
-        const errorMessage = error.message
+        //const errorMessage = error.message
+        return error
       })
-  }, [])
+  }, [auth])
 
   return { state }
 }

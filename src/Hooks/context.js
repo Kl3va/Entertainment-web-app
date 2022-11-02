@@ -8,24 +8,24 @@ import { toast } from 'react-toastify'
 import { useAuth } from 'Hooks/useAuth'
 
 //Get Data stored in local storage
-const getSessionStorage = () => {
+/*const getSessionStorage = () => {
   let movieData = sessionStorage.getItem('movieData')
   if (movieData) {
     return JSON.parse(sessionStorage.getItem('movieData'))
   } else {
     return data
   }
-}
+}*/
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   //console.log(state.user)
   const [userID, setUserID] = useState('')
 
-  const [movieData, setMovieData] = useState(getSessionStorage()) //data / useState([])
+  const [movieData, setMovieData] = useState(data) //useState(getSessionStorage()) //data / useState([])
   //const [movieData, setMovieData] = useState(data)
   const [searchValue, setSearchValue] = useState('')
-
+  console.log(userID)
   /*useEffect(() => {
     localStorage.setItem('movieData', JSON.stringify(movieData))
   }, [movieData])*/
@@ -46,7 +46,7 @@ const AppProvider = ({ children }) => {
 
     setMovieData(newState)
   }
-  console.log(movieData)
+
   const searching = {
     home: 'Search for movies or TV series',
     tv: 'TV series',
@@ -56,7 +56,7 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     /*Store in the session for state persistence. Still exploring firebase, so this is a temporary fix. Will definitely refactor this later. */
-    sessionStorage.setItem('movieData', JSON.stringify(movieData))
+    // sessionStorage.setItem('movieData', JSON.stringify(movieData))
 
     //update user's database on firebase. (Temporary set up)
     const sendData = async () => {

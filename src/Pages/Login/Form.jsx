@@ -61,12 +61,8 @@ const Form = ({
       const docRef = doc(database, 'users', user.uid)
       const docSnap = await getDoc(docRef)
       //Storing said data into state via context API
-      const {
-        data: { movieData },
-      } = docSnap.data()
-      //setMovieData(docSnap.data())
-      //setMovieData(['Welcome', 'Hey'])
-      setMovieData(movieData)
+      const moviesArr = docSnap.data()
+      setMovieData(moviesArr.movieData)
     },
   })
 

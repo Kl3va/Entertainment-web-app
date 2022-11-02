@@ -64,12 +64,14 @@ const SignUpForm = ({
       }
       const { user } = newUser
       setUserID(user.uid)
+      //console.log(user)
 
       await setDoc(doc(database, 'users', user.uid), { data })
+
       const docRef = doc(database, 'users', user.uid)
       const docSnap = await getDoc(docRef)
-      const { data:{ data } } = docSnap.data()
-      setMovieData(data)
+      const testCase = docSnap.data()
+      setMovieData(testCase.data)
     },
   })
 
